@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Elements </title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <app-counter id="counter"></app-counter>
+  <script src="simple.js"></script>
+
+  <script>
+    (function(count) {
+      const elem = document.getElementById('counter');
+      elem.setAttribute('count', count);
+
+      elem.addEventListener('changeCounterValue', () => {
+      count = event.detail === 'true' ? count + 1: count -1;
+      elem.setAttribute('count', count);
+    });
+    })(10);
+  </script>
+</body>
+
+</html>
